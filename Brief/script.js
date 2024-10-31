@@ -1,15 +1,17 @@
-const inputBox = document.getElementById("inputBox")
+// const inputBox = document.getElementById("inputBox")
 
-const list = document.getElementById("list")
+// const list = document.getElementById("list")
 
-function addTask() {
+// function addTask() {
 
 
-    if(inputBox.value === ''){
-        alert("You must write something");
-    }
+//     if(inputBox.value === ''){
+//         alert("You must write something");
+//     }
 
-    // else{
-    //     let 
-    // }
-}
+//     // else{
+//     //     let 
+//     // }
+// }
+
+// 

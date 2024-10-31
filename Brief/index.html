@@ -3,265 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do App</title>
     <link rel="stylesheet" href="./../src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
+
+<style>
+    /* .hidden {
+        display: none;
+    }
+    
+    .show {
+        display: block;
+    } */
+    .hidden {
+    display: none !important;
+    opacity: 0;
+}
+
+.show {
+    display: flex !important;
+    opacity: 1;
+}
+</style>
 <body>
-    <section style="display: flex ;">
-        <button  type="button"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add Task</button>
-
-        <div class="flex rounded-md border-2 border-blue-500 overflow-hidden max-w-md mx-auto font-[sans-serif]">
-            <input type="email" placeholder="Search Something..."
-              class="w-full outline-none bg-white text-gray-600 text-sm px-4 py-3" />
-            <button type='button' class="flex items-center justify-center bg-[#007bff] px-5">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px" class="fill-white">
-                <path
-                  d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
-                </path>
-              </svg>
-            </button>
-          </div>
-    </section>
-
-
-    <main style="display: flex;">
-
-
-
-        
-                      
-          
-            <div class="flex flex-grow items-center justify-center bg-gray-900 h-full">
-                <!-- Component Start -->
-                <div class="max-w-full p-8 bg-gray-800 rounded-lg shadow-lg w-96 text-gray-200">
-                    <div class="flex items-center mb-6">
-                        <svg class="h-8 w-8 text-indigo-500 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                        </svg>
-                        <h4 class="font-semibold ml-3 text-lg">To Do</h4>
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_6" checked>
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_6">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span class="ml-4 text-sm">Workout out</span>
-                        </label>	
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_7" checked>
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_7">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span class="ml-4 text-sm">Take a cold shower</span>
-                        </label>	
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_8">
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_8">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span class="ml-4 text-sm">Drink Water</span>
-                        </label>	
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_9">
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_9">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span class="ml-4 text-sm">Call your Mama !</span>
-                        </label>	
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_10">
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_10">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span class="ml-4 text-sm">Complete your unfinished Projects</span>
-                        </label>	
-                    </div>
-                    <button onclick="addTask()" class="flex items-center w-full h-8 px-2 mt-2 text-sm font-medium rounded">
-                        <svg class="w-5 h-5 text-gray-400 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                        <input class="flex-grow h-8 ml-4 bg-transparent focus:outline-none font-medium" type="text" id="inputBox" placeholder="add a new task">
+    <main>
+        <section class="to-do-app border-2 border-sky-500 p-6 rounded-lg max-w-md mx-auto bg-gradient-to-r from-cyan-500 to-blue-500 shadow-inner">
+            <h2 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-blue-950">
+                How Will We Beat <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">the Odds Today?</span>
+            </h2>
+            
+            <div class="mt-14 block">
+                <div class="flex items-center justify-between">
+                    <h3 class="mb-4 text-4xl font-extrabold dark:text-white inline bg-rose-700">Add New Task!</h3>
+                    <button id="addTaskBtn" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Add Task +
                     </button>
                 </div>
-                <!-- Component End  -->
-                
             </div>
-        
 
+            <h4 class="mb-4 mt-3 text-4xl font-bold text-center">Tasks</h4>
 
-            <div class="flex flex-grow items-center justify-center bg-gray-900 h-full">
-                <!-- Component Start -->
-                <div class="max-w-full p-8 bg-gray-800 rounded-lg shadow-lg w-96 text-gray-200">
-                    <div class="flex items-center mb-6">
-                        <svg class="h-8 w-8 text-indigo-500 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                        </svg>
-                        <h4 class="font-semibold ml-3 text-lg">Doing</h4>
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_6" checked>
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_6">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span id="list" class="ml-4 text-sm">Workout out</span>
-                        </label>	
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_7" checked>
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_7">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span class="ml-4 text-sm">Take a cold shower</span>
-                        </label>	
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_8">
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_8">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span class="ml-4 text-sm">Drink Water</span>
-                        </label>	
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_9">
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_9">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span class="ml-4 text-sm">Call your Mama !</span>
-                        </label>	
-                    </div>
-                    <div>
-                        <input class="hidden" type="checkbox" id="task_10">
-                        <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_10">
-                            <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <span class="ml-4 text-sm">Complete your unfinished Projects</span>
-                        </label>	
-                    </div>
-                    <button class="flex items-center w-full h-8 px-2 mt-2 text-sm font-medium rounded">
-                        <svg class="w-5 h-5 text-gray-400 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                        <input class="flex-grow h-8 ml-4 bg-transparent focus:outline-none font-medium" type="text" placeholder="add a new task">
-                    </button>
-                </div>
-                <!-- Component End  -->
+            <!-- Tasks Container -->
+            <div id="tasksContainer">
+                <!-- Tasks will be dynamically inserted here -->
+            </div>
+        </section>
 
-
-
-                <div class="flex flex-grow items-center justify-center bg-gray-900 h-full">
-                    <!-- Component Start -->
-                    <div class="max-w-full p-8 bg-gray-800 rounded-lg shadow-lg w-96 text-gray-200">
-                        <div class="flex items-center mb-6">
-                            <svg class="h-8 w-8 text-indigo-500 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+        <!-- Task Modal -->
+        <div id="taskModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="relative p-4 w-full max-w-md">
+                <div class="relative bg-white rounded-lg shadow bg-[#022E62]">
+                    <!-- Modal header -->
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-red-600">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                            Create A New TASK!
+                        </h3>
+                        <button type="button" id="closeModal" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                             </svg>
-                            <h4 class="font-semibold ml-3 text-lg">Done</h4>
-                        </div>
-                        <div>
-                            <input class="hidden" type="checkbox" id="task_6" checked>
-                            <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_6">
-                                <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                                <span class="ml-4 text-sm">Workout out</span>
-                            </label>	
-                        </div>
-                        <div>
-                            <input class="hidden" type="checkbox" id="task_7" checked>
-                            <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_7">
-                                <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                                <span class="ml-4 text-sm">Take a cold shower</span>
-                            </label>	
-                        </div>
-                        <div>
-                            <input class="hidden" type="checkbox" id="task_8">
-                            <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_8">
-                                <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                                <span class="ml-4 text-sm">Drink Water</span>
-                            </label>	
-                        </div>
-                        <div>
-                            <input class="hidden" type="checkbox" id="task_9">
-                            <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_9">
-                                <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                                <span class="ml-4 text-sm">Call your Mama !</span>
-                            </label>	
-                        </div>
-                        <div>
-                            <input class="hidden" type="checkbox" id="task_10">
-                            <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_10">
-                                <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
-                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                                <span class="ml-4 text-sm">Complete your unfinished Projects</span>
-                            </label>	
-                        </div>
-                        <button class="flex items-center w-full h-8 px-2 mt-2 text-sm font-medium rounded">
-                            <svg class="w-5 h-5 text-gray-400 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                            </svg>
-                            <input class="flex-grow h-8 ml-4 bg-transparent focus:outline-none font-medium" type="text" placeholder="add a new task">
+                            <span class="sr-only">Close modal</span>
                         </button>
                     </div>
-                    <!-- Component End  -->
+                    <!-- Modal body -->
+                    <form id="taskForm" class="p-4 md:p-5">
+                        <div class="grid gap-4 mb-4 grid-cols-2">
+                            <div class="col-span-2">
+                                <label for="taskName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task name</label>
+                                <input type="text" name="taskName" id="taskName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Enter task name" required>
+                            </div>
+                            
+                            <div class="col-span-2">
+                                <label for="dueDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Due Date</label>
+                                <input type="datetime-local" id="dueDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            </div>
 
+                            <div class="col-span-2">
+                                <label for="taskStatus" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                                <select id="taskStatus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option value="todo">To Do</option>
+                                    <option value="inProgress">In Progress</option>
+                                    <option value="done">Done</option>
+                                </select>
+                            </div>
+
+                            <div class="col-span-2">
+                                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                                <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Task description..."></textarea>                    
+                            </div>
+                        </div>
+                        <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                            Add Task
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
-    
 
-      
-
-
-    <script src="./script.js"></script>
+    <script src="./text.js"></script>
 </body>
 </html>
