@@ -27,6 +27,7 @@
 // }   
 
 
+
 const addTaskBtn = document.querySelector("#addTaskBtn");
 
 const taskModal = document.querySelector("#taskModal");
@@ -36,9 +37,53 @@ const closeModal = document.querySelector('#closeModal');
 
 
 
+
+
+
+
+// click to Add Task Button so you can enter the modal
+
+addTaskBtn.addEventListener("click",addfucntion);
+
+function addfucntion(){
+
+    taskModal.classList.remove("hidden");
+
+}
+
+// close the modal
+
+closeModal.addEventListener("click",function(){
+    
+    taskModal.classList.add("hidden");
+})
+
+// const submit = document.querySelector("#submit")
+
+// submit.addEventListener("click",createTask);
+
+// function createTask(){
+
+
+
+
+// }
+
 // array of tasks
 
 let allTasks = [];
+
+let taskData = {taskName:taskName.value, 
+
+             dueDate:dueDate.value,
+    
+             taskStatus:taskStatus.value,
+    
+             description:description.value,}
+
+             allTasks.push(taskData)
+    console.log(allTasks)
+
 
 lastsubmit.addEventListener("click", () => {
 
@@ -52,7 +97,7 @@ lastsubmit.addEventListener("click", () => {
     const file=document.getElementById('description').value;
     
 
-    // let dueDate
+   
 
     document.getElementById('name').textContent=taskName;
     taskModal.classList.add("hidden");
@@ -66,32 +111,3 @@ lastsubmit.addEventListener("click", () => {
     document.getElementById('gl').textContent=file;
     taskModal.classList.add("hidden");
 })
-
-
-
-// const addTaskBtn = document.getElementById("addTaskBtn");
-
-addTaskBtn.addEventListener("click",addfucntion);
-
-function addfucntion(){
-
-    taskModal.classList.remove("hidden");
-
-}
-
-closeModal.addEventListener("click",function(){
-    
-    taskModal.classList.add("hidden");
-})
-
-const submit = document.querySelector("#submit")
-
-submit.addEventListener("click",createTask);
-
-function createTask(){
-
-   
-
-
-
-}
