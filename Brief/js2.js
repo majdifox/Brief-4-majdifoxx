@@ -73,41 +73,52 @@ closeModal.addEventListener("click",function(){
 
 let allTasks = [];
 
-let taskData = {taskName:taskName.value, 
-
-             dueDate:dueDate.value,
-    
-             taskStatus:taskStatus.value,
-    
-             description:description.value,}
-
-             allTasks.push(taskData)
-    console.log(allTasks)
 
 
-lastsubmit.addEventListener("click", () => {
 
-    const taskName=document.getElementById('taskName').value;
+// lastsubmit.addEventListener("click", () => {
 
-    const dueDate=document.getElementById('dueDate').value;
+//     const taskName=document.getElementById('taskName').value;
 
-    const taskStatus=document.getElementById('taskStatus').value;
+//     const dueDate=document.getElementById('dueDate').value;
+
+//     const taskStatus=document.getElementById('taskStatus').value;
 
 
-    const file=document.getElementById('description').value;
+//     const file=document.getElementById('description').value;
     
 
    
 
-    document.getElementById('name').textContent=taskName;
-    taskModal.classList.add("hidden");
+//     document.getElementById('name').textContent=taskName;
+//     taskModal.classList.add("hidden");
 
-    document.getElementById('date').textContent=dueDate;
-    taskModal.classList.add("hidden");
+//     document.getElementById('date').textContent=dueDate;
+//     taskModal.classList.add("hidden");
 
-    document.getElementById('status').textContent=taskStatus;
-    taskModal.classList.add("hidden");
+//     document.getElementById('status').textContent=taskStatus;
+//     taskModal.classList.add("hidden");
 
-    document.getElementById('gl').textContent=file;
-    taskModal.classList.add("hidden");
-})
+//     document.getElementById('gl').textContent=file;
+//     taskModal.classList.add("hidden");
+// })
+
+
+let lastsubmitx = document.getElementById('lastsubmit');
+
+
+
+lastsubmitx.onclick = function(){
+
+    let taskData = {taskName:taskName.value, 
+
+        dueDate:dueDate.value,
+
+        taskStatus:taskStatus.value,
+
+        description:description.value,}
+
+        allTasks.push(taskData)
+   console.log(allTasks)
+
+}
