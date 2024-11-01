@@ -49,7 +49,7 @@ lastsubmit.addEventListener("click", () => {
     const taskStatus=document.getElementById('taskStatus').value;
 
 
-    const description=document.getElementById('description').value;
+    const file=document.getElementById('description').value;
     
 
     // let dueDate
@@ -63,7 +63,7 @@ lastsubmit.addEventListener("click", () => {
     document.getElementById('status').textContent=taskStatus;
     taskModal.classList.add("hidden");
 
-    document.getElementById('description').textContent=description;
+    document.getElementById('gl').textContent=file;
     taskModal.classList.add("hidden");
 })
 
