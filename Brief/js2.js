@@ -33,9 +33,39 @@ const taskModal = document.querySelector("#taskModal");
 
 const closeModal = document.querySelector('#closeModal');
 
+
+
+
 // array of tasks
 
 let allTasks = [];
+
+lastsubmit.addEventListener("click", () => {
+
+    const taskName=document.getElementById('taskName').value;
+
+    const dueDate=document.getElementById('dueDate').value;
+
+    const taskStatus=document.getElementById('taskStatus').value;
+
+
+    const description=document.getElementById('description').value;
+    
+
+    // let dueDate
+
+    document.getElementById('name').textContent=taskName;
+    taskModal.classList.add("hidden");
+
+    document.getElementById('date').textContent=dueDate;
+    taskModal.classList.add("hidden");
+
+    document.getElementById('status').textContent=taskStatus;
+    taskModal.classList.add("hidden");
+
+    document.getElementById('description').textContent=description;
+    taskModal.classList.add("hidden");
+})
 
 
 
