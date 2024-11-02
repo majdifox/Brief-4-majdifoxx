@@ -82,7 +82,7 @@ const taskModal = document.querySelector("#taskModal");
 
 const closeModal = document.querySelector('#closeModal');
 
-
+let count=0;
 
 
 
@@ -117,7 +117,9 @@ let lastsubmitx = document.getElementById('lastsubmit');
 
 lastsubmitx.onclick = function(){
 
-    let taskData = {taskName:taskName.value, 
+    let taskData = {taskID:count++,
+        
+        taskName:taskName.value, 
 
         dueDate:dueDate.value,
 
@@ -127,7 +129,7 @@ lastsubmitx.onclick = function(){
 
     allTasks.push(taskData);
 
-    localStorage.setItem
+    // localStorage.setItem
    console.log(allTasks)
 
    clearData()
@@ -184,7 +186,7 @@ function displayData() {
     let taskElement = '';
     
     for(let i = 0; i < allTasks.length; i++) {
-        taskElement += `
+        taskElement += `<div id="${allTasks[i].taskID}">
             <li class="flex items-center justify-between">
                 <h5 class="text-2xl font-medium mr-4">${allTasks[i].taskName}</h5>
                 <i class="fas fa-edit text-1xl mb-3 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer"></i>
@@ -195,10 +197,20 @@ function displayData() {
                     <p class="text-1xl dark:text-white">Due Date: ${allTasks[i].dueDate}</p>
                     <p class="text-1xl dark:text-white">Status: ${allTasks[i].taskStatus}</p>
                 </div>
-                <i class="fas fa-trash-alt text-1xl mt-8 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer"></i>
-            </div>
+                <button onclick="deleteTask(${allTasks[i].taskID})" class="fas fa-trash-alt text-1xl mt-8 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer hover:bg-rose-800">
+                </button>
+            </div></div>
         `;
     }
     
     document.getElementById('tasksContainer').innerHTML = taskElement;
+}
+
+// Delete fucntion
+
+function deleteTask(id)
+{
+
+    allTasks.splice(id,1);
+    displayData()
 }
