@@ -220,9 +220,12 @@ function displayData() {
 
 function deleteTask(id)
 {
+    const index = allTasks.findIndex(task => task.taskID === id); //
 
+    if (index !== -1) { //
     allTasks.splice(id,1);
     displayData()
+}
 }
 
 // modify function
