@@ -1,81 +1,3 @@
-// let taskName = document.getElementById('taskName');
-// let dueDate = document.getElementById('dueDate');
-// let taskStatus = document.getElementById('taskStatus');
-// let description = document.getElementById('description');
-// let submit = document.getElementById('submit');
-
-// console.log(taskName,dueDate,taskStatus,description,document,submit    );
-
-
-// let allTasks = [];
-
-// submit.onclick = function(){
-
-//     let newTask = {
-
-//         taskName:taskName.value, /////
-
-//         dueDate:dueDate.value,
-
-//         taskStatus:taskStatus.value,
-
-//         description:description.value,
-
-//     }
-//     taskData.push(newTask)
-//     console.log(newTask)
-// }   
-
-
-
-
-// const submit = document.querySelector("#submit")
-
-// submit.addEventListener("click",createTask);
-
-// function createTask(){
-
-
-
-
-// }
-
-// array of tasks
-
-
-
-
-
-
-// lastsubmit.addEventListener("click", () => {
-
-//     const taskName=document.getElementById('taskName').value;
-
-//     const dueDate=document.getElementById('dueDate').value;
-
-//     const taskStatus=document.getElementById('taskStatus').value;
-
-
-//     const file=document.getElementById('description').value;
-    
-
-   
-
-//     document.getElementById('name').textContent=taskName;
-//     taskModal.classList.add("hidden");
-
-//     document.getElementById('date').textContent=dueDate;
-//     taskModal.classList.add("hidden");
-
-//     document.getElementById('status').textContent=taskStatus;
-//     taskModal.classList.add("hidden");
-
-//     document.getElementById('gl').textContent=file;
-//     taskModal.classList.add("hidden");
-// })
-
-
-
 const addTaskBtn = document.querySelector("#addTaskBtn");
 
 const taskModal = document.querySelector("#taskModal");
@@ -83,10 +5,6 @@ const taskModal = document.querySelector("#taskModal");
 const closeModal = document.querySelector('#closeModal');
 
 let count=0;
-
-
-
-
 
 
 // click to Add Task Button so you can enter the modal
@@ -143,7 +61,7 @@ lastsubmitx.onclick = function(){
 
             allTasks[index] = taskData;
 
-            editTaskId = null;  // Reset editing state
+            editTaskId = null;  
         } else {
             // Add new task
             allTasks.push(taskData);
@@ -184,7 +102,6 @@ function clearData(){
 
 
 
-
 function displayData() {
     let taskElement = '';
     
@@ -218,14 +135,20 @@ function displayData() {
 
 // Delete fucntion
 
-function deleteTask(id)
-{
-    const index = allTasks.findIndex(task => task.taskID === id); //
-
-    if (index !== -1) { //
-    allTasks.splice(id,1);
-    displayData()
-}
+function deleteTask(id) {
+    
+    allTasks = allTasks.filter(task => task.taskID !== id);
+    
+    
+    allTasks = allTasks.map((task, index) => ({
+        ...task,
+        taskID: index
+    }));
+    
+    
+    count = allTasks.length;
+    
+    displayData();
 }
 
 // modify function
@@ -234,7 +157,6 @@ let editTaskId = null;
 
 function modifyTask(id)
 {
-    // addfucntion()
     editTaskId = id;
     const task = allTasks.find(task => task.taskID === id);
 
@@ -246,43 +168,5 @@ function modifyTask(id)
 
     taskModal.classList.remove("hidden");
 
-    // taskName.value = allTasks[i].taskName;
-    // // allTasks
     // console.log(id)
-    // displayData()
 }
-
-
-
-// Display Data 
-
-// function displayData(){
-
-//     let taskElement = '';
-    
-//     for(let i=0; i < allTasks.length; i++ )
-//     {
-
-//         taskElement += `
-//             <li class="flex items-center justify-between">
-//                 <h5 class="text-2xl font-medium mr-4">${task.name}</h5>
-//                 <i class="fas fa-edit text-1xl mb-3 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer" 
-//                    onclick="editTask(${task.id})"></i>
-//             </li>
-//             <div class="flex items-center justify-between">
-//                 <div>
-//                     <p class="font-bold">${task.description}</p>
-//                     <p class="text-1xl dark:text-white">Due Date: ${new Date(task.dueDate).toLocaleString()}</p>
-//                     <p class="text-1xl dark:text-white">Status: ${task.status}</p>
-//                 </div>
-//                 <i class="fas fa-trash-alt text-1xl mt-8 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer"
-//                    onclick="deleteTask(${task.id})"></i>
-//             </div>
-//         `;
-        
-
-//     }
-
-//     document.getElementById('addedTask').innerHTML = taskElement;
-    
-// }
