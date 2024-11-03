@@ -118,6 +118,7 @@ let lastsubmitx = document.getElementById('lastsubmit');
 lastsubmitx.onclick = function(){
 
     // to make sure the user fill all the form
+    
 
     if (!taskName.value || !dueDate.value || !taskStatus.value || !description.value) {
         alert('Please fill in all fields!');
@@ -132,7 +133,9 @@ lastsubmitx.onclick = function(){
 
         taskStatus:taskStatus.value,
 
-        description:description.value,}
+        description:description.value,
+
+        priority: taskPriority.value }
 
         if (editTaskId !== null) {
             // Update existing task
@@ -147,11 +150,26 @@ lastsubmitx.onclick = function(){
         }
    console.log(allTasks)
 
-   clearData()
+   
    displayData()
+   clearData()
    taskModal.classList.add("hidden");
 }
 
+// priority fucntion 
+
+function getPriorityClass(priority) {
+    switch(priority) {
+        case 'p1':
+            return 'bg-red-500 text-white';
+        case 'p2':
+            return 'bg-orange-500 text-white';
+        case 'p3':
+            return 'bg-green-500 text-white';
+        default:
+            return 'bg-gray-500 text-white';
+    }
+}
 
 // clear data from the modal
 
@@ -161,7 +179,7 @@ function clearData(){
     dueDate.value = '';
     taskStatus.value = '';
     description.value = '';
-
+    taskPriority.value = 'p3';
 }
 
 
@@ -176,7 +194,10 @@ function displayData() {
     for(let i = 0; i < allTasks.length; i++) {
         taskElement += `<div id="${allTasks[i].taskID}">
             <li class="flex items-center justify-between">
-                <h5 class="text-2xl font-medium mr-4">${allTasks[i].taskName}</h5>
+                <h5 class="text-2xl font-medium mr-4">${allTasks[i].taskName}
+                <span class="text-sm ml-2 px-2 py-1 rounded-full ${getPriorityClass(allTasks[i].priority)}"> ${allTasks[i].priority.toUpperCase()}
+                </span>
+                </h5>
                 <button onclick="modifyTask(${allTasks[i].taskID})"i class="fas fa-edit text-1xl mb-3 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer"></i>
                 </button>
             </li>
@@ -218,6 +239,7 @@ function modifyTask(id)
     dueDate.value = task.dueDate;
     taskStatus.value = task.taskStatus;
     description.value = task.description;
+    taskPriority.value = task.priority;
 
     taskModal.classList.remove("hidden");
 
