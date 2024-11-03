@@ -189,7 +189,8 @@ function displayData() {
         taskElement += `<div id="${allTasks[i].taskID}">
             <li class="flex items-center justify-between">
                 <h5 class="text-2xl font-medium mr-4">${allTasks[i].taskName}</h5>
-                <i class="fas fa-edit text-1xl mb-3 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer"></i>
+                <button onclick="modifyTask(${allTasks[i].taskID})"i class="fas fa-edit text-1xl mb-3 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer"></i>
+                </button>
             </li>
             <div class="flex items-center justify-between">
                 <div>
@@ -212,5 +213,16 @@ function deleteTask(id)
 {
 
     allTasks.splice(id,1);
+    displayData()
+}
+
+// modify function
+
+function modifyTask(id)
+{
+    addfucntion()
+    taskName.value = allTasks[i].taskName;
+    // allTasks
+    console.log(id)
     displayData()
 }
