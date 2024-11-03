@@ -109,9 +109,10 @@ function displayData() {
     taskElement += `<h3 class="text-xl font-bold text-black mb-4">Total Tasks: ${allTasks.length}</h3>`;
 
     for(let i = 0; i < allTasks.length; i++) {
-        taskElement += `<div id="${allTasks[i].taskID}">
+        taskElement += `<div class="mb-14">
+        <div id="${allTasks[i].taskID}">
             <li class="flex items-center justify-between">
-                <h5 class="text-2xl font-medium mr-4">${allTasks[i].taskName}
+                <h5 class="text-2xl font-medium mr-4 dark:text-red-700 ">${allTasks[i].taskName}
                 <span class="text-sm ml-2 px-2 py-1 rounded-full ${getPriorityClass(allTasks[i].priority)}"> ${allTasks[i].priority.toUpperCase()}
                 </span>
                 </h5>
@@ -122,11 +123,12 @@ function displayData() {
                 <div>
                     <p class="font-bold">${allTasks[i].description}</p>
                     <p class="text-1xl dark:text-white">Due Date: ${allTasks[i].dueDate}</p>
-                    <p class="text-1xl dark:text-white">Status: ${allTasks[i].taskStatus}</p>
+                    <p class="text-1xl dark:text-white ">Status: ${allTasks[i].taskStatus}</p>
                 </div>
-                <button onclick="deleteTask(${allTasks[i].taskID})" class="fas fa-trash-alt text-1xl mt-8 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer hover:bg-rose-800">
+                <button onclick="deleteTask(${allTasks[i].taskID})" class="fas fa-trash-alt text-1xl mt-8 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer hover:bg-rose-800 ">
                 </button>
             </div></div>
+            </div>
         `;
     }
     
