@@ -117,6 +117,13 @@ let lastsubmitx = document.getElementById('lastsubmit');
 
 lastsubmitx.onclick = function(){
 
+    // to make sure the user fill all the form
+
+    if (!taskName.value || !dueDate.value || !taskStatus.value || !description.value) {
+        alert('Please fill in all fields!');
+        return;
+    }
+
     let taskData = {taskID:count++,
         
         taskName:taskName.value, 
@@ -127,13 +134,22 @@ lastsubmitx.onclick = function(){
 
         description:description.value,}
 
-    allTasks.push(taskData);
+        if (editTaskId !== null) {
+            // Update existing task
+            const index = allTasks.findIndex(task => task.taskID === editTaskId);
 
-    // localStorage.setItem
+            allTasks[index] = taskData;
+
+            editTaskId = null;  // Reset editing state
+        } else {
+            // Add new task
+            allTasks.push(taskData);
+        }
    console.log(allTasks)
 
    clearData()
    displayData()
+   taskModal.classList.add("hidden");
 }
 
 
@@ -147,6 +163,70 @@ function clearData(){
     description.value = '';
 
 }
+
+
+
+
+function displayData() {
+    let taskElement = '';
+    
+    // task counter heading
+    taskElement += `<h3 class="text-xl font-bold text-black mb-4">Total Tasks: ${allTasks.length}</h3>`;
+
+    for(let i = 0; i < allTasks.length; i++) {
+        taskElement += `<div id="${allTasks[i].taskID}">
+            <li class="flex items-center justify-between">
+                <h5 class="text-2xl font-medium mr-4">${allTasks[i].taskName}</h5>
+                <button onclick="modifyTask(${allTasks[i].taskID})"i class="fas fa-edit text-1xl mb-3 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer"></i>
+                </button>
+            </li>
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="font-bold">${allTasks[i].description}</p>
+                    <p class="text-1xl dark:text-white">Due Date: ${allTasks[i].dueDate}</p>
+                    <p class="text-1xl dark:text-white">Status: ${allTasks[i].taskStatus}</p>
+                </div>
+                <button onclick="deleteTask(${allTasks[i].taskID})" class="fas fa-trash-alt text-1xl mt-8 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer hover:bg-rose-800">
+                </button>
+            </div></div>
+        `;
+    }
+    
+    document.getElementById('tasksContainer').innerHTML = taskElement;
+}
+
+// Delete fucntion
+
+function deleteTask(id)
+{
+
+    allTasks.splice(id,1);
+    displayData()
+}
+
+// modify function
+
+let editTaskId = null;
+
+function modifyTask(id)
+{
+    // addfucntion()
+    editTaskId = id;
+    const task = allTasks.find(task => task.taskID === id);
+
+    taskName.value = task.taskName;
+    dueDate.value = task.dueDate;
+    taskStatus.value = task.taskStatus;
+    description.value = task.description;
+
+    taskModal.classList.remove("hidden");
+
+    // taskName.value = allTasks[i].taskName;
+    // // allTasks
+    // console.log(id)
+    // displayData()
+}
+
 
 
 // Display Data 
@@ -181,48 +261,3 @@ function clearData(){
 //     document.getElementById('addedTask').innerHTML = taskElement;
     
 // }
-
-function displayData() {
-    let taskElement = '';
-    
-    for(let i = 0; i < allTasks.length; i++) {
-        taskElement += `<div id="${allTasks[i].taskID}">
-            <li class="flex items-center justify-between">
-                <h5 class="text-2xl font-medium mr-4">${allTasks[i].taskName}</h5>
-                <button onclick="modifyTask(${allTasks[i].taskID})"i class="fas fa-edit text-1xl mb-3 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer"></i>
-                </button>
-            </li>
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="font-bold">${allTasks[i].description}</p>
-                    <p class="text-1xl dark:text-white">Due Date: ${allTasks[i].dueDate}</p>
-                    <p class="text-1xl dark:text-white">Status: ${allTasks[i].taskStatus}</p>
-                </div>
-                <button onclick="deleteTask(${allTasks[i].taskID})" class="fas fa-trash-alt text-1xl mt-8 block dark:text-white bg-rose-700 rounded-lg p-1 cursor-pointer hover:bg-rose-800">
-                </button>
-            </div></div>
-        `;
-    }
-    
-    document.getElementById('tasksContainer').innerHTML = taskElement;
-}
-
-// Delete fucntion
-
-function deleteTask(id)
-{
-
-    allTasks.splice(id,1);
-    displayData()
-}
-
-// modify function
-
-function modifyTask(id)
-{
-    addfucntion()
-    taskName.value = allTasks[i].taskName;
-    // allTasks
-    console.log(id)
-    displayData()
-}
